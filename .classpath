@@ -6,8 +6,8 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/necmettin/Desktop/workspace/3party/commons-pool2-2.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/necmettin/Desktop/workspace/3party/guava-18.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/necmettin/Desktop/workspace/3party/jedis-2.7.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/necmettin/Desktop/workspace/swing_example/3party/commons-pool2-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/necmettin/Desktop/workspace/swing_example/3party/guava-18.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/necmettin/Desktop/workspace/swing_example/3party/jedis-2.7.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
