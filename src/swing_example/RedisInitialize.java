@@ -14,6 +14,9 @@ public class RedisInitialize {
 	public static void initializeMsisdnImsi(String IP, String port) {
 		System.out.println("MSISDN-IMSI Redis cache initialing...");
 		System.out.println(IP + "- " + port);
+		
+		RedisCache msisdnImsiRedisCache = new MsisdnImsiRedisCache(IP, Integer.parseInt(port));
+		RedisCacheManager.getInstance().setRedisCache(msisdnImsiRedisCache);
 	}
 	
 }

@@ -50,7 +50,7 @@ public class ImsiMsisdnRedisCache implements RedisCache {
 				
 				jedis.getSet(Longs.toByteArray(keyLong), Longs.toByteArray(valueLong));
 			} catch (NumberFormatException e) {
-				e.printStackTrace();
+				throw e;
 			}
 		}
 

@@ -66,18 +66,24 @@ public class Main {
 
 					if (value == null) {
 						errorMessage("Result not found");
+						textFieldValue.setVisible(false);
+						lblValue.setVisible(false);
 					} else {
 
 						lblValue.setVisible(true);
-						lblValue.setText("MSISDN");
+						lblValue.setText("VALUE");
 						textFieldValue.setVisible(true);
 						textFieldValue.setText(value);
 					}
 				} else if (buttonText.equalsIgnoreCase("PUT")) {
-					String key = textFieldKey.getText().toString();
-					String value = textFieldValue.getText().toString();
-					RedisCacheManager.getInstance().getRedisCache().put(key, value);
-					errorMessage("Operation successfull");
+					try {
+						String key = textFieldKey.getText().toString();
+						String value = textFieldValue.getText().toString();
+						RedisCacheManager.getInstance().getRedisCache().put(key, value);
+						errorMessage("Operation successfull");
+					} catch (Exception e1) {
+						errorMessage(e1.toString());
+					}
 				}
 			}
 		});
@@ -150,18 +156,19 @@ public class Main {
 				if (selectedRedisType.equalsIgnoreCase("GET")) {
 					operationButton.setText("GET");
 					lblKey.setVisible(true);
-					lblKey.setText("IMSI");
+					lblKey.setText("KEY");
 					textFieldKey.setVisible(true);
 					lblValue.setVisible(false);
 					textFieldValue.setVisible(false);
 					
 				} else if (selectedRedisType.equalsIgnoreCase("PUT")) {
+					warningMessage();
 					operationButton.setText("PUT");
 					lblValue.setVisible(true);
-					lblValue.setText("MSISDN");
+					lblValue.setText("VALUE");
 					textFieldValue.setVisible(true);
 					lblKey.setVisible(true);
-					lblKey.setText("IMSI");
+					lblKey.setText("KEY");
 					textFieldKey.setVisible(true);
 				}
 			}
@@ -169,6 +176,9 @@ public class Main {
 		operationComBox.addActionListener(actionListener);
 	}
 
+	private void warningMessage() {
+		JOptionPane.showConfirmDialog(new JFrame(), "MASTER Redis IP-PORT must be defined", "Warning", JOptionPane.WARNING_MESSAGE);
+	}
 	private void initializeLabel() {
 
 		JLabel redisType = new JLabel("Redis Type");
